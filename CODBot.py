@@ -36,7 +36,7 @@ async def _8s(ctx):
 
 @client.command(aliases=['flip'])
 async def coinFlip(ctx):
-    flip = random.randrange(0,1)
+    flip = random.randrange(1)
 
     if flip == 0:
         await ctx.send('Heads')
