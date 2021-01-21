@@ -19,11 +19,11 @@ async def on_ready():
 @client.command(aliases=['8s'])
 async def map8s(ctx):
     search = ['Raid', 'Crossroads', 'Moscow', 'Garrison', 'Miami', 'Checkmate']
-    hardpoint = ['Crossroads', 'Checkmate', 'Garrison', 'Raid']
+    hardpoint = ['Crossroads', 'Checkmate', 'Garrison', 'Raid', 'Moscow']
     control = ['Raid', 'Checkmate', 'Garrison']
     mapPool = []
 
-    firstMap = random.randint(0, 3)
+    firstMap = random.randint(0, 4)
     mapPool.append(hardpoint[firstMap])
 
     while True:
@@ -43,7 +43,7 @@ async def map8s(ctx):
             break
 
     while True:
-        fourthMap = random.randint(0, 3)
+        fourthMap = random.randint(0, 4)
         if firstMap == fourthMap:
             continue
         else:
