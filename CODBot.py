@@ -26,8 +26,13 @@ async def map8s(ctx):
     firstMap = random.randint(0, 3)
     mapPool.append(hardpoint[firstMap])
 
-    secondMap = random.randint(0,5)
-    mapPool.append(search[secondMap])
+    while True:
+        secondMap = random.randint(0,5)
+        mapCount = countMaps(mapPool, search[secondMap])
+
+        if mapCount < 1:
+            mapPool.append(search[secondMap])
+            break
 
     while True:
         thirdMap = random.randint(0,2)
@@ -36,8 +41,6 @@ async def map8s(ctx):
         if mapCount < 1:
             mapPool.append(control[thirdMap])
             break
-        else:
-            continue
 
     while True:
         fourthMap = random.randint(0, 3)
@@ -46,11 +49,9 @@ async def map8s(ctx):
         else:
             mapCount = countMaps(mapPool, hardpoint[fourthMap])
 
-            if mapCount < 2:
+            if mapCount < 1:
                 mapPool.append(hardpoint[fourthMap])
                 break
-            else:
-                continue
     while True:
         fifthMap = random.randint(0,5)
         if secondMap == fifthMap:
@@ -61,8 +62,6 @@ async def map8s(ctx):
             if mapCount < 1:
                 mapPool.append(search[fifthMap])
                 break
-            else:
-                continue
 
     await ctx.send(f'{mapPool[0]}\n{mapPool[1]}\n{mapPool[2]}\n{mapPool[3]}\n{mapPool[4]}')
 
