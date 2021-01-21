@@ -39,8 +39,8 @@ async def coinFlip(ctx):
     flip = random.randint(1)
 
     if flip == 0:
-        await ctx.send('Heads')
+        await ctx.send(':coin: Heads')
     else:
-        await ctx.send('Tails')
+        await ctx.send(':coin: Tails')
 
 client.run(os.environ['DiscordToken'])
