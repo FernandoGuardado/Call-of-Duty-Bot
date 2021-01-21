@@ -34,8 +34,8 @@ async def _8s(ctx):
 
     await ctx.send(f'{hardpoint[firstMap]}\n{search[secondMap]}\n{control[thirdMap]}\n{hardpoint[fourthMap]}\n{search[fifthMap]}')
 
-@client.command(aliases=['8s'])
-async def _8s(ctx):
+@client.command(aliases=['flip'])
+async def coinFlip(ctx):
     flip = random.randrange(0,1)
 
     if flip == 0:
