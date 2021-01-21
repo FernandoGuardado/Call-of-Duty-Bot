@@ -15,18 +15,18 @@ async def _8s(ctx):
     hardpoint = ['Crossroads', 'Checkmate', 'Garrison', 'Raid']
     control = ['Raid', 'Checkmate', 'Garrison']
 
-    firstMap = random.randrange(0, 3)
-    secondMap = random.randrange(0,5)
-    thirdMap = random.randrange(0,2)
+    firstMap = random.randint(0, 3)
+    secondMap = random.randint(0,5)
+    thirdMap = random.randint(0,2)
 
     while True:
-        fourthMap = random.randrange(0, 3)
+        fourthMap = random.randint(0, 3)
         if firstMap == fourthMap:
             continue
         else:
             break
     while True:
-        fifthMap = random.randrange(0,5)
+        fifthMap = random.randint(0,5)
         if secondMap == fifthMap:
             continue
         else:
@@ -36,7 +36,7 @@ async def _8s(ctx):
 
 @client.command(aliases=['flip'])
 async def coinFlip(ctx):
-    flip = random.randrange(1)
+    flip = random.randint(1)
 
     if flip == 0:
         await ctx.send('Heads')
