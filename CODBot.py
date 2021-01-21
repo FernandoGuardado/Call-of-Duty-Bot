@@ -17,7 +17,7 @@ async def on_ready():
     print('Bot is ready')
 
 @client.command(aliases=['8s'])
-async def _8s(ctx):
+async def map8s(ctx):
     search = ['Raid', 'Crossroads', 'Moscow', 'Garrison', 'Miami', 'Checkmate']
     hardpoint = ['Crossroads', 'Checkmate', 'Garrison', 'Raid']
     control = ['Raid', 'Checkmate', 'Garrison']
