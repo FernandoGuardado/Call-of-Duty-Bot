@@ -1,4 +1,5 @@
 import random
+import os
 import discord
 from discord.ext import commands
 
@@ -33,4 +34,4 @@ async def _8s(ctx):
 
     await ctx.send(f'{hardpoint[firstMap]}\n{search[secondMap]}\n{control[thirdMap]}\n{hardpoint[fourthMap]}\n{search[fifthMap]}')
 
-client.run('ODAxNjc5MTYyNTQ4ODEzODY2.YAkL5g.tUx_dA2w3FIIGs28nv0OGA8ASXA')
+client.run(os.environ['DiscordToken'])
