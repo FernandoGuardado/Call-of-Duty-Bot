@@ -58,7 +58,7 @@ async def map8s(ctx):
         else:
             mapCount = countMaps(mapPool, search[fifthMap])
 
-            if mapCount < 2:
+            if mapCount < 1:
                 mapPool.append(search[fifthMap])
                 break
             else:
