@@ -1,4 +1,5 @@
 import random
+import time
 import os
 import discord
 from discord.ext import commands
@@ -25,9 +26,11 @@ async def map8s(ctx):
 
     firstMap = random.randint(0, 3)
     mapPool.append(hardpoint[firstMap])
+    time.sleep(1)
 
     secondMap = random.randint(0,5)
     mapPool.append(search[secondMap])
+    time.sleep(1)
 
     while True:
         thirdMap = random.randint(0,2)
@@ -38,7 +41,7 @@ async def map8s(ctx):
             break
         else:
             continue
-
+    time.sleep(1)
     while True:
         fourthMap = random.randint(0, 3)
         if firstMap == fourthMap:
@@ -51,6 +54,7 @@ async def map8s(ctx):
                 break
             else:
                 continue
+    time.sleep(1)
     while True:
         fifthMap = random.randint(0,5)
         if secondMap == fifthMap:
