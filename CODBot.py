@@ -49,7 +49,7 @@ async def map8s(ctx):
         else:
             mapCount = countMaps(mapPool, hardpoint[fourthMap])
 
-            if mapCount < 1:
+            if mapCount < 2:
                 mapPool.append(hardpoint[fourthMap])
                 break
     while True:
