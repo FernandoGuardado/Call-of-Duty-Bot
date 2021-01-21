@@ -12,7 +12,7 @@ async def on_ready():
 @client.command(aliases=['8s'])
 async def _8s(ctx):
     search = ['Raid', 'Crossroads', 'Moscow', 'Garrison', 'Miami', 'Checkmate']
-    hardpoint = ['Raid', 'Crossroads', 'Checkmate', 'Garrison']
+    hardpoint = ['Crossroads', 'Checkmate', 'Garrison', 'Raid']
     control = ['Raid', 'Checkmate', 'Garrison']
 
     firstMap = random.randrange(0, 3)
@@ -33,5 +33,14 @@ async def _8s(ctx):
             break
 
     await ctx.send(f'{hardpoint[firstMap]}\n{search[secondMap]}\n{control[thirdMap]}\n{hardpoint[fourthMap]}\n{search[fifthMap]}')
+
+@client.command(aliases=['8s'])
+async def _8s(ctx):
+    flip = random.randrange(0,1)
+
+    if flip == 0:
+        await ctx.send('Heads')
+    else:
+        await ctx.send('Tails')
 
 client.run(os.environ['DiscordToken'])
