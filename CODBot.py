@@ -73,6 +73,8 @@ async def map8s(ctx):
     )
     embed.add_field(name='Hardpoint', value=mapPool[0], inline=False)
 
+    await client.say(embed=embed)
+
 # command to flip a coin
 @client.command(aliases=['flip'])
 async def coinFlip(ctx):
