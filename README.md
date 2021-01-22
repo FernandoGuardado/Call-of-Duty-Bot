@@ -7,6 +7,7 @@ Discord bot that runs various commands in the competetive Call of Duty scene
 <li>!8s - Creates BO5 map pool</li>
 <ul>
   <li>Currently supports Cold War competetive map pool - map pool last updated 1/21/2021</li>
+</ul>
 </li>
-<li>!flip - Flips a coin used when picking captains</li>
+<li>Fourth item</li>
 </ul>
