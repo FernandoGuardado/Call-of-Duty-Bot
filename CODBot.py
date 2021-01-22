@@ -1,6 +1,7 @@
 import random
 import os
 import discord
+from discord import colour
 from discord.ext import commands
 
 def countMaps(lst, x): 
@@ -12,10 +13,12 @@ def countMaps(lst, x):
 
 client = commands.Bot(command_prefix = '!')
 
+# log that bot is ready when put online
 @client.event
 async def on_ready():
     print('Bot is ready')
 
+# command to create bo5 map pool for 8s
 @client.command(aliases=['8s'])
 async def map8s(ctx):
     search = ['Raid', 'Crossroads', 'Moscow', 'Garrison', 'Miami', 'Checkmate']
@@ -63,8 +66,14 @@ async def map8s(ctx):
                 mapPool.append(search[fifthMap])
                 break
 
-    await ctx.send(f'{mapPool[0]}\n{mapPool[1]}\n{mapPool[2]}\n{mapPool[3]}\n{mapPool[4]}')
+    # await ctx.send(f'{mapPool[0]}\n{mapPool[1]}\n{mapPool[2]}\n{mapPool[3]}\n{mapPool[4]}')
+    embed = discord.Embed(
+        title = 'Best of 5 Series:',
+        colour = discord.Colour.teal()
+    )
+    embed.add_field(name='Hardpoint', value=mapPool[0], inline=False)
 
+# command to flip a coin
 @client.command(aliases=['flip'])
 async def coinFlip(ctx):
     flip = random.randint(0,1)
@@ -74,4 +83,5 @@ async def coinFlip(ctx):
     else:
         await ctx.send(':coin: Tails')
 
+# grab discord token from heroku and run bot
 client.run(os.environ['DiscordToken'])
