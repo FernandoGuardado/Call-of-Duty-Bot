@@ -1,5 +1,7 @@
 import random
 import os
+import datetime
+from typing import Text
 import discord
 from discord import colour
 from discord.ext import commands
@@ -66,14 +68,17 @@ async def map8s(ctx):
                 mapPool.append(search[fifthMap])
                 break
 
-    # await ctx.send(f'{mapPool[0]}\n{mapPool[1]}\n{mapPool[2]}\n{mapPool[3]}\n{mapPool[4]}')
     embed = discord.Embed(
-        title = 'Best of 5 Series:',
         colour = discord.Colour.teal()
     )
-    embed.add_field(name='Hardpoint', value=mapPool[0], inline=False)
+    embed.add_field(name='Hardpoint', value=mapPool[0], inline=True)
+    embed.add_field(name='Search', value=mapPool[1], inline=True)
+    embed.add_field(name='Control', value=mapPool[2], inline=True)
+    embed.add_field(name='Hardpoint', value=mapPool[3], inline=True)
+    embed.add_field(name='Search', value=mapPool[4], inline=True)
+    embed.set_footer(text='Powered by Kriptonic')
 
-    await client.say(embed=embed)
+    await ctx.send(embed=embed)
 
 # command to flip a coin
 @client.command(aliases=['flip'])
@@ -81,9 +86,17 @@ async def coinFlip(ctx):
     flip = random.randint(0,1)
 
     if flip == 0:
-        await ctx.send(':coin: Heads')
+        embed = discord.Embed(
+            title = ':coin: Heads',
+            colour = discord.Colour.teal()
+        )
+        await ctx.send(embed=embed)
     else:
-        await ctx.send(':coin: Tails')
+        embed = discord.Embed(
+            title = ':coin: Tails',
+            colour = discord.Colour.teal()
+        )
+        await ctx.send(embed=embed)
 
 # grab discord token from heroku and run bot
 client.run(os.environ['DiscordToken'])
