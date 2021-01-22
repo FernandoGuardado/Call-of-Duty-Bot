@@ -9,5 +9,5 @@ Discord bot that runs various commands in the competetive Call of Duty scene
   <li>Currently supports Cold War competetive map pool - map pool last updated 1/21/2021</li>
 </ul>
 </li>
-<li>Fourth item</li>
+<li>!flip - Flips a coin used when picking captains</li>
 </ul>
