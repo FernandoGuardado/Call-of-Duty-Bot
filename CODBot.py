@@ -4,6 +4,7 @@ import datetime
 from typing import Text
 import discord
 from discord import colour
+from discord import message
 from discord.ext import commands
 
 def countMaps(lst, x): 
@@ -23,6 +24,7 @@ async def on_ready():
 # command to create bo5 map pool for 8s
 @client.command(aliases=['8s'])
 async def map8s(ctx):
+    await ctx.channel.purge(limit=1)
     search = ['Raid', 'Crossroads', 'Moscow', 'Garrison', 'Miami', 'Checkmate']
     hardpoint = ['Crossroads', 'Checkmate', 'Garrison', 'Raid', 'Moscow']
     control = ['Raid', 'Checkmate', 'Garrison']
