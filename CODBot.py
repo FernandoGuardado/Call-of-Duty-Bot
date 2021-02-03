@@ -25,6 +25,7 @@ async def on_ready():
 @client.command(aliases=['8s'])
 async def map8s(ctx):
     # await ctx.channel.purge(limit=1)
+
     search = ['Raid', 'Crossroads', 'Moscow', 'Garrison', 'Miami', 'Checkmate']
     hardpoint = ['Crossroads', 'Checkmate', 'Garrison', 'Raid', 'Moscow']
     control = ['Raid', 'Checkmate', 'Garrison']
@@ -84,7 +85,7 @@ async def map8s(ctx):
 
 # command to flip a coin
 @client.command(aliases=['flip'])
-async def coinFlip(ctx):
+async def coinFlip():
     flip = random.randint(0,1)
 
     if flip == 0:
