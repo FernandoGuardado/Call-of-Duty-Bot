@@ -45,7 +45,7 @@ async def map8s(ctx):
         thirdMap = random.randint(0,2)
         mapCount = countMaps(mapPool, control[thirdMap])
 
-        if mapCount < 1:
+        if mapCount < 2:
             mapPool.append(control[thirdMap])
             break
 
