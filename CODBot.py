@@ -85,7 +85,7 @@ async def map8s(ctx):
 
 # command to flip a coin
 @client.command(aliases=['flip'])
-async def coinFlip():
+async def coinFlip(ctx):
     flip = random.randint(0,1)
 
     if flip == 0:
