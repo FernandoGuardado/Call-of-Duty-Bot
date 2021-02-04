@@ -103,7 +103,7 @@ async def coinFlip(ctx):
 
 # command to display ga rules
 @client.command(aliases=['ga'])
-async def coinFlip(ctx):
+async def ga(ctx):
     embed = discord.Embed(
         title = 'Gentlemans Agreements',
         colour = discord.Colour.teal()
