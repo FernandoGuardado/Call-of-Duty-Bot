@@ -101,5 +101,18 @@ async def coinFlip(ctx):
         )
         await ctx.send(embed=embed)
 
+# command to display ga rules
+@client.command(aliases=['ga'])
+async def coinFlip(ctx):
+    embed = discord.Embed(
+        title = 'Gentlemans Agreements',
+        colour = discord.Colour.teal()
+    )
+    embed.add_field(name='Weapons', value='AK-47\n1911', inline=False)
+    embed.add_field(name='Perks/Wildcards', value='Gearhead\nPerk Greed\nLaw Breaker Allowed, No Overkill', inline=False)
+    embed.add_field(name='Tacticals', value='Molotovs\nSmokes\n', inline=False)
+    embed.add_field(name='Attachments', value='KBG/Socom Eliminator\nDamage Changing Barrels\nThermals\nLasers', inline=False)
+
+    await ctx.send(embed=embed)
 # grab discord token from heroku and run bot
 client.run(os.environ['DiscordToken'])
