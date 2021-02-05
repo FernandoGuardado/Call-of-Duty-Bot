@@ -26,7 +26,7 @@ async def on_ready():
 async def map8s(ctx):
     # await ctx.channel.purge(limit=1)
 
-    search = ['Raid', 'Crossroads', 'Moscow', 'Garrison', 'Miami', 'Checkmate']
+    search = ['Raid', 'Crossroads', 'Moscow', 'Garrison', 'Miami', 'Checkmate', 'Express']
     hardpoint = ['Crossroads', 'Checkmate', 'Garrison', 'Raid', 'Moscow']
     control = ['Raid', 'Checkmate', 'Garrison']
     mapPool = []
@@ -35,7 +35,7 @@ async def map8s(ctx):
     mapPool.append(hardpoint[firstMap])
 
     while True:
-        secondMap = random.randint(0,5)
+        secondMap = random.randint(0,6)
         mapCount = countMaps(mapPool, search[secondMap])
 
         if mapCount < 1:
@@ -61,7 +61,7 @@ async def map8s(ctx):
                 mapPool.append(hardpoint[fourthMap])
                 break
     while True:
-        fifthMap = random.randint(0,5)
+        fifthMap = random.randint(0,6)
         if secondMap == fifthMap:
             continue
         else:
