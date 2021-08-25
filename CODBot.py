@@ -7,27 +7,34 @@ from discord import colour
 from discord import message
 from discord.ext import commands
 
-def countMaps(lst, x): 
-    count = 0
-    for ele in lst: 
-        if (ele == x): 
-            count = count + 1
-    return count 
 
-client = commands.Bot(command_prefix = '!')
+def countMaps(lst, x):
+    count = 0
+    for ele in lst:
+        if (ele == x):
+            count = count + 1
+    return count
+
+
+client = commands.Bot(command_prefix='!')
 
 # log that bot is ready when put online
+
+
 @client.event
 async def on_ready():
     print('Bot is ready')
 
 # command to create bo5 map pool for 8s
+
+
 @client.command(aliases=['8s'])
 async def map8s(ctx):
     # await ctx.channel.purge(limit=1)
 
-    search = ['Raid', 'Crossroads', 'Moscow', 'Garrison', 'Miami', 'Checkmate', 'Express']
-    hardpoint = ['Crossroads', 'Checkmate', 'Garrison', 'Raid', 'Moscow']
+    hardpoint = ['Apocalypse', 'Checkmate',
+                 'Garrison', 'Raid', 'Moscow', 'Standoff']
+    search = ['Raid', 'Standoff', 'Moscow', 'Miami', 'Slums', 'Express']
     control = ['Raid', 'Checkmate', 'Garrison']
     mapPool = []
 
@@ -35,7 +42,7 @@ async def map8s(ctx):
     mapPool.append(hardpoint[firstMap])
 
     while True:
-        secondMap = random.randint(0,6)
+        secondMap = random.randint(0, 6)
         mapCount = countMaps(mapPool, search[secondMap])
 
         if mapCount < 1:
@@ -43,7 +50,7 @@ async def map8s(ctx):
             break
 
     while True:
-        thirdMap = random.randint(0,2)
+        thirdMap = random.randint(0, 2)
         mapCount = countMaps(mapPool, control[thirdMap])
 
         if mapCount < 3:
@@ -61,7 +68,7 @@ async def map8s(ctx):
                 mapPool.append(hardpoint[fourthMap])
                 break
     while True:
-        fifthMap = random.randint(0,6)
+        fifthMap = random.randint(0, 6)
         if secondMap == fifthMap:
             continue
         else:
@@ -72,7 +79,7 @@ async def map8s(ctx):
                 break
 
     embed = discord.Embed(
-        colour = discord.Colour.teal()
+        colour=discord.Colour.teal()
     )
     embed.add_field(name='Hardpoint', value=mapPool[0], inline=True)
     embed.add_field(name='Search', value=mapPool[1], inline=True)
@@ -84,34 +91,40 @@ async def map8s(ctx):
     await ctx.send(embed=embed)
 
 # command to flip a coin
+
+
 @client.command(aliases=['flip'])
 async def coinFlip(ctx):
-    flip = random.randint(0,1)
+    flip = random.randint(0, 1)
 
     if flip == 0:
         embed = discord.Embed(
-            title = ':coin: Heads',
-            colour = discord.Colour.teal()
+            title=':coin: Heads',
+            colour=discord.Colour.teal()
         )
         await ctx.send(embed=embed)
     else:
         embed = discord.Embed(
-            title = ':coin: Tails',
-            colour = discord.Colour.teal()
+            title=':coin: Tails',
+            colour=discord.Colour.teal()
         )
         await ctx.send(embed=embed)
 
 # command to display ga rules
+
+
 @client.command(aliases=['ga'])
 async def gentlemansAgreements(ctx):
     embed = discord.Embed(
-        title = 'Gentlemans Agreements',
-        colour = discord.Colour.teal()
+        title='Gentlemans Agreements',
+        colour=discord.Colour.teal()
     )
     embed.add_field(name='Weapons', value='AK-47\n1911', inline=False)
-    embed.add_field(name='Perks/Wildcards', value='Gearhead\nPerk Greed\nLaw Breaker Allowed, No Overkill', inline=False)
+    embed.add_field(name='Perks/Wildcards',
+                    value='Gearhead\nPerk Greed\nLaw Breaker Allowed, No Overkill', inline=False)
     embed.add_field(name='Tacticals', value='Molotovs\nSmokes\n', inline=False)
-    embed.add_field(name='Attachments', value='KBG/Socom Eliminator\nDamage Changing Barrels\nThermals\nLasers', inline=False)
+    embed.add_field(name='Attachments',
+                    value='KBG/Socom Eliminator\nDamage Changing Barrels\nThermals\nLasers', inline=False)
 
     await ctx.send(embed=embed)
 # grab discord token from heroku and run bot
