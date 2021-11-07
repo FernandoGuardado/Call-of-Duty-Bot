@@ -25,6 +25,71 @@ client = commands.Bot(command_prefix='!')
 async def on_ready():
     print('Bot is ready')
 
+
+@client.command(aliases=['vanguard'])
+async def vanguard(ctx):
+    # await ctx.channel.purge(limit=1)
+
+    hardpoint = ['Berlin', 'Bocage', 'Castle', 'Demyansk',
+                 'Eagles Nest', 'Gavutu', 'Tuscan', 'Redstar']
+    search = ['Tuscan', 'Castle', 'Berlin', 'Bocage', 'Demyansk']
+    control = ['Berlin', 'Bocage', 'Castle', 'Demyansk',
+               'Eagles Nest', 'Gavutu', 'Tuscan', 'Redstar']
+    mapPool = []
+
+    firstMap = random.randint(0, 5)
+    mapPool.append(hardpoint[firstMap])
+
+    while True:
+        secondMap = random.randint(0, 5)
+        mapCount = countMaps(mapPool, search[secondMap])
+
+        if mapCount < 1:
+            mapPool.append(search[secondMap])
+            break
+
+    while True:
+        thirdMap = random.randint(0, 2)
+        mapCount = countMaps(mapPool, control[thirdMap])
+
+        if mapCount < 3:
+            mapPool.append(control[thirdMap])
+            break
+
+    while True:
+        fourthMap = random.randint(0, 5)
+        if firstMap == fourthMap:
+            continue
+        else:
+            mapCount = countMaps(mapPool, hardpoint[fourthMap])
+
+            if mapCount < 2:
+                mapPool.append(hardpoint[fourthMap])
+                break
+    while True:
+        fifthMap = random.randint(0, 5)
+        if secondMap == fifthMap:
+            continue
+        else:
+            mapCount = countMaps(mapPool, search[fifthMap])
+
+            if mapCount < 1:
+                mapPool.append(search[fifthMap])
+                break
+
+    embed = discord.Embed(
+        colour=discord.Colour.teal()
+    )
+    embed.add_field(name='Hardpoint', value=mapPool[0], inline=True)
+    embed.add_field(name='Search', value=mapPool[1], inline=True)
+    embed.add_field(name='Hardpoint', value=mapPool[2], inline=True)
+    embed.add_field(name='Hardpoint', value=mapPool[3], inline=True)
+    embed.add_field(name='Search', value=mapPool[4], inline=True)
+    embed.set_footer(text='Powered by Kriptonic')
+
+    await ctx.send(embed=embed)
+
+
 # command to create bo5 map pool for 8s
 
 
