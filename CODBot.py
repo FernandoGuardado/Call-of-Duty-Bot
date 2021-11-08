@@ -83,8 +83,8 @@ async def vanguard8s(ctx):
     embed.add_field(name='Hardpoint', value=mapPool[0], inline=True)
     embed.add_field(name='Search', value=mapPool[1], inline=True)
     embed.add_field(name='Hardpoint', value=mapPool[2], inline=True)
-    embed.add_field(name='Hardpoint', value=mapPool[3], inline=True)
     embed.add_field(name='Search', value=mapPool[4], inline=True)
+    embed.add_field(name='Hardpoint', value=mapPool[3], inline=True)
     embed.set_footer(text='Powered by Kriptonic')
 
     await ctx.send(embed=embed)
