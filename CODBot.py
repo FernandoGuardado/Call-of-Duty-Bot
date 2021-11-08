@@ -37,11 +37,11 @@ async def vanguard(ctx):
                'Eagles Nest', 'Gavutu', 'Tuscan', 'Redstar']
     mapPool = []
 
-    firstMap = random.randint(0, 5)
+    firstMap = random.randint(0, 7)
     mapPool.append(hardpoint[firstMap])
 
     while True:
-        secondMap = random.randint(0, 5)
+        secondMap = random.randint(0, 4)
         mapCount = countMaps(mapPool, search[secondMap])
 
         if mapCount < 1:
@@ -49,7 +49,7 @@ async def vanguard(ctx):
             break
 
     while True:
-        thirdMap = random.randint(0, 2)
+        thirdMap = random.randint(0, 7)
         mapCount = countMaps(mapPool, control[thirdMap])
 
         if mapCount < 3:
@@ -57,7 +57,7 @@ async def vanguard(ctx):
             break
 
     while True:
-        fourthMap = random.randint(0, 5)
+        fourthMap = random.randint(0, 4)
         if firstMap == fourthMap:
             continue
         else:
@@ -67,7 +67,7 @@ async def vanguard(ctx):
                 mapPool.append(hardpoint[fourthMap])
                 break
     while True:
-        fifthMap = random.randint(0, 5)
+        fifthMap = random.randint(0, 7)
         if secondMap == fifthMap:
             continue
         else:
