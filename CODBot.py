@@ -27,7 +27,7 @@ async def on_ready():
 
 
 @client.command(aliases=['vanguard'])
-async def vanguard(ctx):
+async def vanguard8s(ctx):
     # await ctx.channel.purge(limit=1)
 
     hardpoint = ['Berlin', 'Bocage', 'Castle', 'Demyansk',
