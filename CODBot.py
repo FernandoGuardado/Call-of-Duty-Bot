@@ -26,8 +26,8 @@ async def on_ready():
     print('Bot is ready')
 
 
-@client.command(aliases=['vanguard'])
-async def vanguard8s(ctx):
+@client.command(aliases=['8s'])
+async def vanguard(ctx):
     # await ctx.channel.purge(limit=1)
 
     hardpoint = ['Berlin', 'Bocage', 'Castle', 'Demyansk',
@@ -93,8 +93,8 @@ async def vanguard8s(ctx):
 # command to create bo5 map pool for 8s
 
 
-@client.command(aliases=['8s'])
-async def map8s(ctx):
+@client.command(aliases=['cw'])
+async def coldwar(ctx):
     # await ctx.channel.purge(limit=1)
 
     hardpoint = ['Apocalypse', 'Checkmate',
